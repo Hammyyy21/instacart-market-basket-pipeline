@@ -1,0 +1,8 @@
+psycopg2-binary
+kafka-python
+boto3
+pandas
+pyarrow
+apache-airflow
+dbt-postgres
+python-dotenv
