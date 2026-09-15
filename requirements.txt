@@ -4,5 +4,4 @@ boto3
 pandas
 pyarrow
 apache-airflow
-dbt-postgres
 python-dotenv
