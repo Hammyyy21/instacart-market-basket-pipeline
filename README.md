@@ -1,5 +1,7 @@
 # Instacart Market Basket Data Engineering Pipeline
 
+![Pipeline Architecture](docs/architecture/main-pipeline.png)
+
 An end-to-end data engineering and analytics pipeline built with the Kaggle **Instacart Market Basket Analysis** dataset.
 
 The project demonstrates how a large relational dataset can move from a transactional database through an event-streaming layer and AWS cloud infrastructure into a data warehouse for business intelligence.
