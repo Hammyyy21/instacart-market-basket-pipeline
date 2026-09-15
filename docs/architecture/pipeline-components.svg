@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120">
+  <rect width="1800" height="1120" fill="white"/>
+  <rect x="18" y="18" width="1764" height="1084" rx="5" fill="white" stroke="#53c7f2" stroke-width="7"/>
+  <text x="48" y="78" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#111">How the Pipeline Works</text>
+  <text x="48" y="118" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#444">Instacart Market Basket Data Engineering Pipeline</text>
+
+  <defs>
+    <marker id="arrow2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#1c1c1c"/>
+    </marker>
+  </defs>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g>
+      <rect x="45" y="180" width="250" height="560" rx="18" fill="#f4fbff" stroke="#53c7f2" stroke-width="3"/>
+      <circle cx="85" cy="220" r="26" fill="#1d79b8"/><text x="85" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="white">1</text>
+      <text x="170" y="228" text-anchor="middle" font-size="27" font-weight="700" fill="#336791">PostgreSQL</text>
+      <text x="70" y="300" font-size="21" font-weight="700" fill="#111">SOURCE DATABASE</text>
+      <text x="70" y="345" font-size="19" fill="#222">• Load Kaggle CSV files</text>
+      <text x="70" y="380" font-size="19" fill="#222">• Preserve relational tables</text>
+      <text x="70" y="415" font-size="19" fill="#222">• Validate IDs and joins</text>
+      <text x="70" y="450" font-size="19" fill="#222">• Source for streaming jobs</text>
+      <text x="70" y="520" font-size="19" font-weight="700" fill="#111">Example tables</text>
+      <text x="70" y="555" font-size="18" fill="#333">orders</text>
+      <text x="70" y="585" font-size="18" fill="#333">order_products__prior</text>
+      <text x="70" y="615" font-size="18" fill="#333">products</text>
+      <text x="70" y="645" font-size="18" fill="#333">aisles / departments</text>
+    </g>
+
+    <g>
+      <rect x="340" y="180" width="250" height="560" rx="18" fill="#f8fbfd" stroke="#53c7f2" stroke-width="3"/>
+      <circle cx="380" cy="220" r="26" fill="#1d79b8"/><text x="380" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="white">2</text>
+      <text x="465" y="228" text-anchor="middle" font-size="29" font-weight="700" fill="#111">Kafka</text>
+      <text x="365" y="300" font-size="21" font-weight="700" fill="#111">STREAMING LAYER</text>
+      <text x="365" y="345" font-size="19" fill="#222">• Producer reads PostgreSQL</text>
+      <text x="365" y="380" font-size="19" fill="#222">• Converts rows into events</text>
+      <text x="365" y="415" font-size="19" fill="#222">• Publishes to topics</text>
+      <text x="365" y="450" font-size="19" fill="#222">• Consumer reads events</text>
+      <text x="365" y="520" font-size="19" font-weight="700" fill="#111">Example topics</text>
+      <text x="365" y="555" font-size="18" fill="#333">instacart.orders</text>
+      <text x="365" y="585" font-size="18" fill="#333">instacart.order_products</text>
+    </g>
+
+    <g>
+      <rect x="635" y="180" width="250" height="560" rx="18" fill="#fff8f1" stroke="#53c7f2" stroke-width="3"/>
+      <circle cx="675" cy="220" r="26" fill="#1d79b8"/><text x="675" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="white">3</text>
+      <text x="760" y="228" text-anchor="middle" font-size="26" font-weight="700" fill="#f58536">Amazon EC2</text>
+      <text x="660" y="300" font-size="21" font-weight="700" fill="#111">COMPUTE LAYER</text>
+      <text x="660" y="345" font-size="19" fill="#222">• Runs Python producer</text>
+      <text x="660" y="380" font-size="19" fill="#222">• Runs Kafka consumer</text>
+      <text x="660" y="415" font-size="19" fill="#222">• Hosts Airflow services</text>
+      <text x="660" y="450" font-size="19" fill="#222">• Uses IAM to reach AWS</text>
+      <text x="660" y="520" font-size="19" font-weight="700" fill="#111">Purpose</text>
+      <text x="660" y="555" font-size="18" fill="#333">Provides the compute</text>
+      <text x="660" y="585" font-size="18" fill="#333">power behind processing</text>
+      <text x="660" y="615" font-size="18" fill="#333">and orchestration.</text>
+    </g>
+
+    <g>
+      <rect x="930" y="180" width="250" height="560" rx="18" fill="#fffaf4" stroke="#53c7f2" stroke-width="3"/>
+      <circle cx="970" cy="220" r="26" fill="#1d79b8"/><text x="970" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="white">4</text>
+      <text x="1055" y="228" text-anchor="middle" font-size="27" font-weight="700" fill="#f58536">Amazon S3</text>
+      <text x="955" y="300" font-size="21" font-weight="700" fill="#111">DATA LAKE</text>
+      <text x="955" y="345" font-size="19" fill="#222">• Consumer writes events</text>
+      <text x="955" y="380" font-size="19" fill="#222">• Durable cloud storage</text>
+      <text x="955" y="415" font-size="19" fill="#222">• Raw / processed layers</text>
+      <text x="955" y="450" font-size="19" fill="#222">• Supports batch loading</text>
+      <text x="955" y="520" font-size="19" font-weight="700" fill="#111">Example structure</text>
+      <text x="955" y="555" font-size="18" fill="#333">raw/orders/</text>
+      <text x="955" y="585" font-size="18" fill="#333">raw/order_products/</text>
+      <text x="955" y="615" font-size="18" fill="#333">processed/</text>
+    </g>
+
+    <g>
+      <rect x="1225" y="180" width="250" height="560" rx="18" fill="#f4f9ff" stroke="#53c7f2" stroke-width="3"/>
+      <circle cx="1265" cy="220" r="26" fill="#1d79b8"/><text x="1265" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="white">5</text>
+      <text x="1350" y="228" text-anchor="middle" font-size="23" font-weight="700" fill="#2775b6">Amazon Redshift</text>
+      <text x="1250" y="300" font-size="21" font-weight="700" fill="#111">DATA WAREHOUSE</text>
+      <text x="1250" y="345" font-size="19" fill="#222">• COPY data from S3</text>
+      <text x="1250" y="380" font-size="19" fill="#222">• Run transformation SQL</text>
+      <text x="1250" y="415" font-size="19" fill="#222">• Build analytics tables</text>
+      <text x="1250" y="450" font-size="19" fill="#222">• Optimize BI queries</text>
+      <text x="1250" y="520" font-size="19" font-weight="700" fill="#111">Analytics examples</text>
+      <text x="1250" y="555" font-size="18" fill="#333">product performance</text>
+      <text x="1250" y="585" font-size="18" fill="#333">reorder behavior</text>
+      <text x="1250" y="615" font-size="18" fill="#333">basket analysis</text>
+    </g>
+
+    <g>
+      <rect x="1520" y="180" width="235" height="560" rx="18" fill="#fffdf5" stroke="#53c7f2" stroke-width="3"/>
+      <circle cx="1560" cy="220" r="26" fill="#1d79b8"/><text x="1560" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="white">6</text>
+      <text x="1640" y="228" text-anchor="middle" font-size="27" font-weight="700" fill="#e8a600">Power BI</text>
+      <text x="1545" y="300" font-size="21" font-weight="700" fill="#111">ANALYTICS</text>
+      <text x="1545" y="345" font-size="19" fill="#222">• Connect to Redshift</text>
+      <text x="1545" y="380" font-size="19" fill="#222">• Build dashboards</text>
+      <text x="1545" y="415" font-size="19" fill="#222">• Explore KPIs</text>
+      <text x="1545" y="450" font-size="19" fill="#222">• Present business insights</text>
+      <text x="1545" y="520" font-size="19" font-weight="700" fill="#111">Examples</text>
+      <text x="1545" y="555" font-size="18" fill="#333">top products</text>
+      <text x="1545" y="585" font-size="18" fill="#333">basket size</text>
+      <text x="1545" y="615" font-size="18" fill="#333">shopping patterns</text>
+    </g>
+  </g>
+
+  <line x1="295" y1="460" x2="340" y2="460" stroke="#111" stroke-width="4" marker-end="url(#arrow2)"/>
+  <line x1="590" y1="460" x2="635" y2="460" stroke="#111" stroke-width="4" marker-end="url(#arrow2)"/>
+  <line x1="885" y1="460" x2="930" y2="460" stroke="#111" stroke-width="4" marker-end="url(#arrow2)"/>
+  <line x1="1180" y1="460" x2="1225" y2="460" stroke="#111" stroke-width="4" marker-end="url(#arrow2)"/>
+  <line x1="1475" y1="460" x2="1520" y2="460" stroke="#111" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <rect x="300" y="820" width="1200" height="190" rx="22" fill="#f8fbfd" stroke="#53c7f2" stroke-width="3"/>
+  <text x="900" y="875" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#222">Apache Airflow — Orchestration Layer</text>
+  <text x="900" y="920" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#222">Schedules dependencies, starts jobs, monitors failures, retries tasks, and coordinates the full workflow.</text>
+  <text x="900" y="962" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#444">PostgreSQL validation → Kafka streaming → S3 load → Redshift load & SQL → Power BI refresh</text>
+  <line x1="900" y1="820" x2="900" y2="765" stroke="#111" stroke-width="4" marker-end="url(#arrow2)"/>
+</svg>
