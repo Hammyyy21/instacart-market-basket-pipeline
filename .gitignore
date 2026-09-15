@@ -1,0 +1,24 @@
+.DS_Store
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# Airflow
+airflow.db
+airflow.cfg
+webserver_config.py
+
+# Local data
+data/
+*.csv
+*.parquet
+
+# Power BI
+*.pbix
