@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="white"/>
+  <rect x="18" y="18" width="1564" height="650" rx="4" fill="white" stroke="#53c7f2" stroke-width="7"/>
+  <text x="42" y="72" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#111">Pipeline Structure</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#111"/>
+    </marker>
+  </defs>
+
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="55" y="280" width="220" height="210" rx="16" fill="#f8fbfd" stroke="#dfe8ed" stroke-width="2"/>
+    <text x="165" y="350" font-size="30" font-weight="700" fill="#336791">PostgreSQL</text>
+    <text x="165" y="395" font-size="20" fill="#222">Source database</text>
+    <text x="165" y="425" font-size="20" fill="#222">for Instacart data</text>
+
+    <rect x="365" y="280" width="220" height="210" rx="16" fill="#f8fbfd" stroke="#dfe8ed" stroke-width="2"/>
+    <text x="475" y="350" font-size="34" font-weight="700" fill="#111">Kafka</text>
+    <text x="475" y="395" font-size="20" fill="#222">Streams records</text>
+    <text x="475" y="425" font-size="20" fill="#222">as events</text>
+
+    <rect x="680" y="280" width="220" height="210" rx="16" fill="#fffaf5" stroke="#eadfd5" stroke-width="2"/>
+    <text x="790" y="345" font-size="28" font-weight="700" fill="#f58536">Amazon S3</text>
+    <text x="790" y="395" font-size="20" fill="#222">Durable cloud</text>
+    <text x="790" y="425" font-size="20" fill="#222">data lake storage</text>
+
+    <rect x="995" y="280" width="220" height="210" rx="16" fill="#f7fbff" stroke="#dce7f2" stroke-width="2"/>
+    <text x="1105" y="345" font-size="26" font-weight="700" fill="#2775b6">Amazon Redshift</text>
+    <text x="1105" y="395" font-size="20" fill="#222">Analytics warehouse</text>
+    <text x="1105" y="425" font-size="20" fill="#222">and SQL modeling</text>
+
+    <rect x="1310" y="280" width="220" height="210" rx="16" fill="#fffdf7" stroke="#ede6cf" stroke-width="2"/>
+    <text x="1420" y="350" font-size="30" font-weight="700" fill="#e8a600">Power BI</text>
+    <text x="1420" y="395" font-size="20" fill="#222">Dashboards and</text>
+    <text x="1420" y="425" font-size="20" fill="#222">business analytics</text>
+
+    <rect x="620" y="95" width="340" height="120" rx="18" fill="#fff7ef" stroke="#f1caa6" stroke-width="2"/>
+    <text x="790" y="145" font-size="30" font-weight="700" fill="#f58536">Amazon EC2</text>
+    <text x="790" y="180" font-size="20" fill="#222">Compute for Kafka producer,</text>
+    <text x="790" y="207" font-size="20" fill="#222">consumer, and Airflow services</text>
+  </g>
+
+  <line x1="275" y1="385" x2="365" y2="385" stroke="#111" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="585" y1="385" x2="680" y2="385" stroke="#111" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="900" y1="385" x2="995" y2="385" stroke="#111" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1215" y1="385" x2="1310" y2="385" stroke="#111" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M700 215 C620 235, 560 245, 510 280" fill="none" stroke="#111" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M880 215 C930 235, 895 250, 845 280" fill="none" stroke="#111" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <line x1="790" y1="668" x2="790" y2="720" stroke="#111" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="790" y="775" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-size="38" font-weight="700" fill="#222">Apache Airflow</text>
+  <text x="790" y="815" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-size="25" font-weight="700" fill="#222">Orchestrates and schedules the entire pipeline</text>
+</svg>
