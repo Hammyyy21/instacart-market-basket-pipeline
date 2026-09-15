@@ -1,0 +1,14 @@
+name: market_pipeline
+version: "1.0.0"
+config-version: 2
+
+profile: market_pipeline
+
+model-paths: ["models"]
+
+models:
+  market_pipeline:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
